@@ -1,6 +1,6 @@
 # Deploud.com
 
-<img src='./logo-deploud.svg' alt='Deploud Logo' style="margin: 0 auto;">
+<img src='./logo-deploud.svg' alt='Deploud Logo' width="250px" />
 
 [Site here](https://deploud.com)
 
