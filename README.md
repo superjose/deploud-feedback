@@ -1,5 +1,13 @@
 # Deploud.com
 
+<img src='./logo-deploud.svg' alt='Deploud Logo' style="margin: 0 auto;">
+
+[Site here](https://deploud.com)
+
+Deploy helps you deploy your app to AWS, GCP, and Azure with a [b]single command[/b]. 
+
+Deploud is supporting the deployment of a Docker Image to Google Cloud Run Instantaneously.
+
 ## Why I Built Deploud
 
 Deploud is designed for people who:
@@ -10,9 +18,47 @@ Deploud is designed for people who:
 - **Save costs**: Don't pay for wrapper services like Vercel, Fly, Netlify when you can go directly to the provider.
 - **Want to create a custom solution**: We simplify the hard stuff: Making sure the services we select, connect to each other properly. As we don't abstract the cloud provider, you can pair and customize your services however you want. There's no Deploud lock-in. You can take the code and run it.
 
+## How It Works
+
+### Quickly deploy your project with a single command
+
+Deploud will generate a .zip that contains all the files you need to get your application deployed. It contains the following files:
+
+- **cli**: Command Line Interface tools
+- **pulumi**: Pulumi scripts
+- **scripts**: Deployment scripts
+- **gen.bash**: Generation script
+- **del.bash**: Deletion script
+- **config.json**: Configuration file
+
+You should unzip them somewhere in your project (e.g., `<root>/deploy`). You will be able to customize the paths to the Docker file within Deploud (recommended) or the included config.json.
+
+The scripts will:
+1. Install the required CLI tools (gcloud, expect, docker, jq, pulumi, golang).
+2. Configure the required permissions in GCloud.
+3. Scaffold the right Pulumi scripts for you.
+
+You will be able to inspect what each of the scripts do. These have a single point of entry, the gen.bash script (and del.bash to remove the instances).
+
+These scripts are **idempotent**. This means you can run them as many times as you want and they will not create duplicate resources.
+
+### Run the Code
+
+Navigate to the folder where you unzipped the files and run the following command:
+```bash
+bash gen.bash
+```
+
+### Delete the cloud resources:
+This will not delete your files. 
+```bash
+bash del.bash
+```
+
+
 ## Key Features
 
-![Deploud](./images/deploud-logo.png)
+![Deploud](./logo-deploud.svg)
 
 **Deploy Your Docker Image to Google Cloud Run Instantly**: Automate Your Cloud Deployments with a Single Command – Scaffold, Customize, and Own Your Deployment Scripts.
 
@@ -38,25 +84,6 @@ A bash-supported environment:
 - **Linux**
 
 ![System Requirements](./images/system-requirements.png)
-
-## Pricing
-
-### Simple Pricing
-
-![Pricing](./images/pricing.png)
-
-- ~~$19.99~~ $9.99 (once)
-- Limited time only
-- Deploy your app in minutes with a single command
-- Sets up with minimum permissions
-- Bootstraps required services only
-- Built-in Idempotency (Won't create twice the same resource)
-- Verified scripts that you can extend and use
-- One-time fee
-- Don't pay for wrapper services
-- Cost-effective
-
-[Deploy now](#)
 
 ## Issues
 
