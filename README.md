@@ -4,7 +4,7 @@
 
 [Site here](https://deploud.com)
 
-Deploy helps you deploy your app to AWS, GCP, and Azure with a [b]single command[/b]. 
+Deploud helps you deploy your app to AWS, GCP, and Azure with a [b]single command[/b]. 
 
 Deploud is supporting the deployment of a Docker Image to Google Cloud Run Instantaneously.
 
